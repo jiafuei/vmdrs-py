@@ -23,20 +23,40 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        target: [x86_64, x86, aarch64, armv7]
-        python-version: ['3.10', '3.11']
+        target: [x86_64, aarch64]
+        python-version: ['3.10']
     steps:
       - uses: actions/checkout@v3
+      - name: Install OpenSSL libs
+        run: sudo apt-get -y update && sudo apt-get install -y libssl-dev
       - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+      - name: Check Host Arch
+        run: uname -m
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
           target: ${{ matrix.target }}
           args: --release --out dist --find-interpreter
           sccache: 'true'
-          manylinux: auto
+          manylinux: '2_28'
+          docker-options: |
+            -e CI_TARGET=${{ matrix.target }}
+          before-script-linux: |
+            echo "Get arch"
+            uname -m
+            echo "target_cc= $TARGET_CC"
+            echo "Check package manager"
+            apt-get -y update || yum list updates
+            echo "Install OpenSSL libs"
+            apt-get -y install pkg-config libssl-dev gfortran-aarch64-linux-gnu || yum -y install pkgconf openssl-devel
+            export FC=aarch64-linux-gnu-gfortran
+            if [ "$CI_TARGET" = "aarch64" ];then export OPENBLAS_TARGET=ARMV8; export OPENBLAS_CC=$TARGET_CC; export OPENBLAS_FC=$FC; export OPENBLAS_HOSTCC=gcc; fi
+            echo "openblas targets"
+            echo "$OPENBLAS_TARGET"
+            echo "$OPENBLAS_CC"
+            echo "$OPENBLAS_FC"
       - name: Upload wheels
         uses: actions/upload-artifact@v3
         with:
@@ -47,8 +67,8 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        target: [x64, x86]
-        python-version: ['3.10', '3.11']
+        target: [x64]
+        python-version: ['3.10']
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
@@ -72,7 +92,7 @@ jobs:
     strategy:
       matrix:
         target: [x86_64, aarch64]
-        python-version: ['3.10', '3.11']
+        python-version: ['3.10']
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
