@@ -1169,9 +1169,9 @@ checksum = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
 
 [[package]]
 name = "vmd-rs"
-version = "0.1.0"
+version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "83a45d0badf13f7b3736319d5e13856ff8c8382cb58967a6067e3fe6d7b94fab"
+checksum = "a54d05f91425b2d5e93b35f93c98900ffad7af58d19d3dbdf0d34dcf8019ca53"
 dependencies = [
  "ndarray",
  "ndarray-rand",

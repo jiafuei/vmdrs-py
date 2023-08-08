@@ -38,4 +38,4 @@ openblas-src = { git = "https://github.com/jiafuei/openblas-src.git", branch = "
 [dependencies]
 numpy = "0.19.0"
 pyo3 = "0.19.0"
-vmd-rs = { version = "0.1.0", features = ["blas"] }
+vmd-rs = { version = "0.1.1", features = ["blas"] }
