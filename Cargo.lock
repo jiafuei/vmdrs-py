@@ -1169,9 +1169,9 @@ checksum = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
 
 [[package]]
 name = "vmd-rs"
-version = "0.1.1"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a54d05f91425b2d5e93b35f93c98900ffad7af58d19d3dbdf0d34dcf8019ca53"
+checksum = "d613b5ba7727e042fe7daa2198519db4550f560428b48887b0b5c0b822bacd20"
 dependencies = [
  "ndarray",
  "ndarray-rand",
@@ -1183,7 +1183,7 @@ dependencies = [
 
 [[package]]
 name = "vmdrs-py"
-version = "0.1.1"
+version = "0.2.0"
 dependencies = [
  "blas-src",
  "numpy",

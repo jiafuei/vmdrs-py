@@ -27,8 +27,8 @@ use vmd_rs::vmd;
 fn VMD(
     py: Python<'_>,
     input: PyReadonlyArray1<f64>,
-    alpha: i32,
-    tau: i32,
+    alpha: f64,
+    tau: f64,
     K: usize,
     DC: i32,
     init: i32,
