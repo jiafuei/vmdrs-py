@@ -26,7 +26,7 @@ Examples
 #%% Simple example: generate signal with 3 components + noise  
 import numpy as np  
 import matplotlib.pyplot as plt  
-from vmdpy import VMD  
+from vmdrs_py import VMD  
 
 #. Time Domain 0 to T  
 T = 1000  
