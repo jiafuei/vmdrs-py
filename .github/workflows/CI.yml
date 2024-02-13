@@ -32,8 +32,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Check Host Arch
-        run: uname -m
+      - name: Install pip
+        run: python3 -m ensurepip
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
