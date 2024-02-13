@@ -1,11 +1,11 @@
 [package]
 name = "vmdrs-py"
-version = "0.2.1"
+version = "0.3.0"
 edition = "2021"
 
 authors = ["jiafuei"]
 repository = "https://github.com/jiafuei/vmdrs-py"
-description = "Example Python project to use the Rust vmd-rs crate"
+description = "Better, drop in replacement of vmdpy"
 license-file = "LICENSE.md"
 keywords = ["signal-processing", "vmd", "signal-analysis", "python"]
 
