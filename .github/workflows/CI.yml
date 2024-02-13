@@ -49,7 +49,7 @@ jobs:
             echo "Install OpenSSL libs"
             apt-get -y install pkg-config libssl-dev gfortran-aarch64-linux-gnu || yum -y install pkgconf openssl-devel
             export FC=aarch64-linux-gnu-gfortran
-            if [ "$CI_TARGET" = "aarch64" ];then export OPENBLAS_TARGET=ARMV8; export OPENBLAS_CC=$TARGET_CC; export OPENBLAS_FC=$FC; export OPENBLAS_HOSTCC=gcc; fi
+            if [ "$CI_TARGET" = "aarch64" ];then export OPENBLAS_TARGET=ARMV8; export OPENBLAS_CC=$TARGET_CC; export OPENBLAS_FC=$FC; export OPENBLAS_HOSTCC=gcc; export BLIS_CONFNAME=arm64; fi
             echo "openblas targets"
             echo "$OPENBLAS_TARGET"
             echo "$OPENBLAS_CC"
