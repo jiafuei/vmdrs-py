@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install OpenSSL libs
         run: sudo apt-get -y update && sudo apt-get install -y libssl-dev
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
       - name: Check Host Arch
@@ -71,7 +71,7 @@ jobs:
         python-version: ['3.12']
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
           architecture: ${{ matrix.target }}
@@ -95,7 +95,7 @@ jobs:
         python-version: ['3.12']
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
       - name: Build wheels
