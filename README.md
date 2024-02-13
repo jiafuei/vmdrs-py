@@ -1,24 +1,22 @@
 vmdrs-py
 ---
-VMD, aka Variational Mode Decomposition, is a signal processing tool that decompse the input signal into different band-limited IMFs.
+Drop in replacement for [vmdpy](https://github.com/vrcarva/vmdpy) with fixes and improvements using the [vmd-rs](https://github.com/jiafuei/vmd-rs) Rust crate.
 
-This project exposes the [vmd-rs](https://github.com/jiafuei/vmd-rs) crate to Python.
+VMD, aka Variational Mode Decomposition, is a signal processing tool that decompse the input signal into different band-limited IMFs.
 
 Installation
 ---
 Available on [PyPI](https://pypi.org/project/vmdrs-py)
+
 ```
-pip install vmdrs-py
+pip install --upgrade vmdrs-py
 ```
 
-| Target                    | Blas Provider        |
-|---------------------------|----------------------|
-| aarch64-unknown-linux-gnu | OpenBLAS             |
-| x86_64-unknown-linux-gnu  | Intel MKL            |
-| x86_64-pc-windows-msvc    | Intel MKL            |
-| x86_64-apple-darwin       | Accelerate Framework |
-| aarch64-apple-darwin      | Accelerate Framework |
-
+Requirements
+---
+```
+numpy>=1.20
+```
 
 Examples
 ---
